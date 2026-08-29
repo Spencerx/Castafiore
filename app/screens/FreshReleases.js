@@ -19,7 +19,7 @@ const AlbumExplorer = () => {
 	const [albums, setAlbums] = React.useState([])
 
 	React.useEffect(() => {
-		fetch(`https://api.listenbrainz.org/1/user/${encodeURIComponent(settings.listenBrainzUser)}/fresh_releases`, { mode: 'cors' })
+		fetch(`https://api.listenbrainz.org/1/user/${encodeURIComponent(settings.listenBrainzUser)}/fresh_releases?days=90&sort=release_date`, { mode: 'cors' })
 			.then(response => response.json())
 			.then(data => {
 				if (data.error) return
